@@ -1,8 +1,10 @@
+import { NavLink } from "react-router-dom";
+
 export const Navbar = () => {
     return (
         <nav className='navbar navbar-expand-lg navbar-dark main-color py-3'>
             <div className='container-fluid'>
-                <span className='navbar-brand'>Luv 2 Read</span>
+                <span className='navbar-brand'>Love to Read</span>
                 <button
                     className='navbar-toggler'
                     type='button'
@@ -20,16 +22,16 @@ export const Navbar = () => {
                 >
                     <ul className='navbar-nav'>
                         <li className='nav-item'>
-                            <a className='nav-link' href='#'>
+                            <NavLink className='nav-link' to='/home'>
                                 {' '}
                                 Home
-                            </a>
+                            </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link' href='#'>
+                            <NavLink className='nav-link' to='/search'>
                                 {' '}
                                 Search Books
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                     <ul className='navbar-nav ms-auto'>
