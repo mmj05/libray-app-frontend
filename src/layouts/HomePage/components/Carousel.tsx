@@ -18,6 +18,10 @@ export const Carousel = () => {
 
             const response = await fetch(url);
 
+            if (!response.ok) {
+                throw new Error('Something went wrong!');
+            }
+
             const responseJson = await response.json();
 
             const responseData = responseJson._embedded.books;
