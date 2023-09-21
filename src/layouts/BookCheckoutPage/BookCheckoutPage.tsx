@@ -6,6 +6,7 @@ import { CheckoutAndReviewBox } from './CheckoutAndReviewBox';
 import ReviewModel from '../../models/ReviewModel';
 import { read } from 'fs';
 import { error } from 'console';
+import { LatestReviews } from './LatestReviews';
 
 export const BookCheckoutPage = () => {
 
@@ -136,12 +137,13 @@ export const BookCheckoutPage = () => {
                             <h2>{book?.title}</h2>
                             <h5 className='text-primary'>{book?.author}</h5>
                             <p className='lead'>{book?.description}</p>
-                            <StarsReview rating={3} size={32} />
+                            <StarsReview rating={totalStars} size={32} />
                         </div>
                     </div>
                     <CheckoutAndReviewBox book={book} mobile={false} />
                 </div>
                 <hr />
+                <LatestReviews reviews={reviews} bookId={book?.id} mobile={false}/>
             </div>
             <div className='container d-lg-none mt-5'>
                 <div className='d-flex justify-content-center align-items-center'>
@@ -166,11 +168,12 @@ export const BookCheckoutPage = () => {
                         <h2>{book?.title}</h2>
                         <h5 className='text-primary'>{book?.author}</h5>
                         <p className='lead'>{book?.description}</p>
-                        <StarsReview rating={3} size={32} />
+                        <StarsReview rating={totalStars} size={32} />
                     </div>
                 </div>
                 <CheckoutAndReviewBox book={book} mobile={true} />
                 <hr />
+                <LatestReviews reviews={reviews} bookId={book?.id} mobile={true}/>
             </div>
         </div>
     );
