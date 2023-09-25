@@ -6,3 +6,5 @@ export const oktaConfig = {
     pkce: true,
     disableHttpsCheck: true
 }
+
+// Rename
