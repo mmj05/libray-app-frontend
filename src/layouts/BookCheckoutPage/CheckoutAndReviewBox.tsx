@@ -1,21 +1,27 @@
 import { Link } from 'react-router-dom';
 import BookModel from '../../models/BookModel';
+import { LeaveAReview } from '../Utils/LeaveAReview';
 
 export const CheckoutAndReviewBox: React.FC<{
-    book: BookModel | undefined,
-    mobile: boolean,
-    currentLoansCount: number,
-    isAuthenticated: any,
-    isCheckedOut: boolean,
-    checkoutBook: any,
-    isReviewLeft: boolean
+    book: BookModel | undefined;
+    mobile: boolean;
+    currentLoansCount: number;
+    isAuthenticated: any;
+    isCheckedOut: boolean;
+    checkoutBook: any;
+    isReviewLeft: boolean;
+    submitReview: any;
 }> = (props) => {
-
     function buttonRender() {
         if (props.isAuthenticated) {
             if (!props.isCheckedOut && props.currentLoansCount < 5) {
                 return (
-                    <button onClick={() => props.checkoutBook()} className='btn btn-success btn-lg'>Checkout</button>
+                    <button
+                        onClick={() => props.checkoutBook()}
+                        className='btn btn-success btn-lg'
+                    >
+                        Checkout
+                    </button>
                 );
             } else if (props.isCheckedOut) {
                 return (
@@ -39,11 +45,20 @@ export const CheckoutAndReviewBox: React.FC<{
 
     function reviewRender() {
         if (props.isAuthenticated && !props.isReviewLeft) {
-            return (<p>Leave a review component here.</p>);
+            return <LeaveAReview submitReview={props.submitReview} />;
         } else if (props.isAuthenticated && props.isReviewLeft) {
-            return (<p><b>Thank you for your review!</b></p>)
+            return (
+                <p>
+                    <b>Thank you for your review!</b>
+                </p>
+            );
         }
-        return (<div><hr />Sign in to leave a review.</div>)
+        return (
+            <div>
+                <hr />
+                Sign in to leave a review.
+            </div>
+        );
     }
 
     return (
