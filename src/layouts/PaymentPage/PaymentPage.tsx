@@ -87,7 +87,7 @@ export const PaymentPage = () => {
                     setSubmitDisabled(false);
                     alert('There was an error');
                 } else {
-                    const url = `https://localhost:8443/api/payments/secure/payment-complete`;
+                    const url = `https://localhost:8443/api/payment/secure/payment-complete`;
                     const requestOptions = {
                         method: 'PUT',
                         headers: {
